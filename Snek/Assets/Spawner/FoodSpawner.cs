@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Spawns new Food Block whenever the last one was eaten
 public class FoodSpawner : MonoBehaviour
 {
 
 	public GameObject FoodPrefab;
 
-	private GameObject currentFood = null;
+	private GameObject currentFood;
 	
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		if (currentFood == null)
 		{

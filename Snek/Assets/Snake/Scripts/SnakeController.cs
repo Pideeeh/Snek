@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Snake.Scripts;
 using UnityEngine;
 
+//Class for managing the snake overall
 public class SnakeController : MonoBehaviour
 {
     private Head head;
@@ -30,6 +31,7 @@ public class SnakeController : MonoBehaviour
         MoveSnake();
     }
 
+    //Query User Input
     void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -43,6 +45,7 @@ public class SnakeController : MonoBehaviour
         }
     }
 
+    //Move each part towards its direction
     private void MoveSnake()
     {
         if (moveBody)
@@ -73,6 +76,7 @@ public class SnakeController : MonoBehaviour
         CreateRotator(-90.0f);
     }
 
+    //Place Rotator object
     private void CreateRotator(float angle)
     {
         var rotator = Instantiate(RotatorPrefab);
@@ -80,6 +84,7 @@ public class SnakeController : MonoBehaviour
         rotator.GetComponent<SnakeRotator>().Angle = angle;
     }
 
+    //Add new body part. Shortly stops rest of the snake for the new segment to fit in behind the head. 
     public void Grow()
     {
         gameController.Score += parts.Length - 2;
@@ -91,14 +96,13 @@ public class SnakeController : MonoBehaviour
         {
             part.First = false;
         }
-
         var newSnakePart = bodyPart.GetComponent<SnakePart>();
         newSnakePart.First = true;
         moveBody = false;
-        StartCoroutine(DelayBody(newSnakePart));
+        StartCoroutine(DelayBody());
     }
 
-    private IEnumerator DelayBody(SnakePart snakePart)
+    private IEnumerator DelayBody()
     {
         yield return new WaitForSecondsRealtime((0.38f * 200) / Speed);
         moveBody = true;

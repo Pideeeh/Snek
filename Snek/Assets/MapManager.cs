@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using Snake.Scripts;
 using UnityEngine;
 
+//Manager for moving snake parts when they leave the play area (Collider of Map)
 public class MapManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	private void OnTriggerExit(Collider other)
 	{

@@ -1,6 +1,7 @@
 ﻿using Snake.Scripts;
 using UnityEngine;
 
+//Script for rotating single parts of Snake when they leave the scripts collider
 [RequireComponent(typeof(Collider))]
 public class SnakeRotator : MonoBehaviour
 {

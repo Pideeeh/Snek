@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Overall Manager for game, keeping track of score and resetting the game
 public class GameController : MonoBehaviour
 {
     public int Score
@@ -18,16 +19,6 @@ public class GameController : MonoBehaviour
 
     public Text ScoreText;
     private int score;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void RestartGame()
     {

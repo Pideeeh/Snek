@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Snake.Scripts
 {
+    //Marker class for each part of the snake with logic for moving into current direction. 
     [RequireComponent(typeof(Rigidbody))]
     public class SnakePart : MonoBehaviour
     {
-        public bool First = false;
+        //Flag required to prevent collision when snake is turning.
+        public bool First;
         private Rigidbody rigidbody;
         
         void Start()
