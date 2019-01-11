@@ -6,6 +6,8 @@ namespace Snake.Scripts
     public class SnakePart : MonoBehaviour
     {
         private Rigidbody rigidbody;
+        //Used to delay collision on new Body Parts
+        public bool Enabled { get; set; }
         
         void Start()
         {
