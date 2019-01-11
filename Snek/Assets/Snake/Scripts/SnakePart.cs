@@ -5,9 +5,8 @@ namespace Snake.Scripts
     [RequireComponent(typeof(Rigidbody))]
     public class SnakePart : MonoBehaviour
     {
+        public bool First = false;
         private Rigidbody rigidbody;
-        //Used to delay collision on new Body Parts
-        public bool Enabled { get; set; }
         
         void Start()
         {

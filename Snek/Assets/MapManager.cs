@@ -20,22 +20,25 @@ public class MapManager : MonoBehaviour {
 		var part = other.GetComponent<SnakePart>();
 		if (part != null)
 		{
-			if (part.transform.position.x > 40)
+			var pos = part.transform.position;
+			if (pos.x > 40)
 			{
-				part.transform.Translate(-80,0,0);
+				pos.x -= 80;
 			}
-			if (part.transform.position.x < -40)
+			else if (pos.x < -40)
 			{
-				part.transform.Translate(80,0,0);
+				pos.x += 80;
 			}
-			if (part.transform.position.z > 40)
+			else if (pos.z > 40)
 			{
-				part.transform.Translate(0,0,-80);
+				pos.z -= 80;
 			}
-			if (part.transform.position.z < -40)
+			else if (pos.z < -40)
 			{
-				part.transform.Translate(0,0,80);
+				pos.z += 80;
 			}
+
+			part.transform.position = pos;
 		}
 	}
 }

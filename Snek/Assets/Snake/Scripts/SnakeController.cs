@@ -58,6 +58,7 @@ public class SnakeController : MonoBehaviour
             {
                 part.Move(0);
             }
+
             head.Move(Speed);
         }
     }
@@ -81,21 +82,25 @@ public class SnakeController : MonoBehaviour
 
     public void Grow()
     {
-        gameController.Score+= parts.Length-2;
-        var bodyPart = Instantiate(BodyPartPrefab,transform);
+        gameController.Score += parts.Length - 2;
+        var bodyPart = Instantiate(BodyPartPrefab, transform);
         bodyPart.transform.position = head.transform.position;
         bodyPart.transform.rotation = head.transform.rotation;
         parts = GetComponentsInChildren<SnakePart>();
-        var newSnakePart =bodyPart.GetComponent<SnakePart>();
-        newSnakePart.Enabled = false;
+        foreach (var part in parts)
+        {
+            part.First = false;
+        }
+
+        var newSnakePart = bodyPart.GetComponent<SnakePart>();
+        newSnakePart.First = true;
         moveBody = false;
         StartCoroutine(DelayBody(newSnakePart));
     }
 
     private IEnumerator DelayBody(SnakePart snakePart)
     {
-        yield return new WaitForSecondsRealtime((0.35f * 200)/Speed);
+        yield return new WaitForSecondsRealtime((0.38f * 200) / Speed);
         moveBody = true;
-        snakePart.Enabled = true;
     }
 }
