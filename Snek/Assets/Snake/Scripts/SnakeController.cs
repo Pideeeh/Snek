@@ -104,7 +104,7 @@ public class SnakeController : MonoBehaviour
 
     private IEnumerator DelayBody()
     {
-        yield return new WaitForSecondsRealtime((0.38f * 200) / Speed);
+        yield return new WaitForSeconds((0.35f * 200) / Speed);
         moveBody = true;
     }
 }
